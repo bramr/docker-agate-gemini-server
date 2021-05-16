@@ -1,0 +1,13 @@
+version: "2.4"
+services:
+  agate:
+    image: bramr/agate-gemini-server:3
+    environment:
+      AGATE_HOSTNAME: 'agate.local,orthisone.local'
+      AGATE_LANG: 'en_US'
+    ports:
+      - "1965:1965"
+    restart: unless-stopped
+    volumes: 
+      - ./content:/usr/share/agate/content
+      - ./certs:/usr/share/agate/.certificates
